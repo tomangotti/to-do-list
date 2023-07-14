@@ -6,10 +6,11 @@ import { DataStorageService } from '../shared/data-storage.service';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
+
 export class ListComponent implements OnInit{
-    constructor(private dataStorageDevice: DataStorageService){}
+    constructor(private dataStorageService: DataStorageService){}
 
     ngOnInit() {
-      this.dataStorageDevice.fetchList().subscribe();
+      this.dataStorageService.fetchList().subscribe();
     }
 }

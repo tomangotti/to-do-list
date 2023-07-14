@@ -22,9 +22,10 @@ export class DataStorageService {
     }
 
     onSaveNewItem(newItem: Item) {
-        this.http.post(this.serverAddress, newItem).subscribe( res => {
-            console.log(res)
+        this.http.post<Item[]>(this.serverAddress, newItem).subscribe( res => {
+            this.itemService.setList(res)
         })
+        
     }
 
     onUpdateItem(updatedItem: Item) {

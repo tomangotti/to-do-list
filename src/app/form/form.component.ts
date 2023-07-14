@@ -24,6 +24,8 @@ export class FormComponent {
     
     this.itemService.addNewItem(newItem)
     this.dataStorageService.onSaveNewItem(newItem)
+    
     form.reset()
   }
 }
+
