@@ -9,7 +9,7 @@ import { Injectable } from "@angular/core";
 
 export class DataStorageService {
     constructor(private http: HttpClient, private itemService: ItemService){}
-    serverAddress = "http://localhost:8080/todos"
+    serverAddress = "https://go-web-service-production.up.railway.app/todos"
     fetchList(){
         return this.http
                     .get<Item[]>(this.serverAddress)
