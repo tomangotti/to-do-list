@@ -9,7 +9,9 @@ import { ListComponent } from './list/list.component';
 import { ToDoListComponent } from './list/to-do-list/to-do-list.component';
 import { ToDoListItemComponent } from './list/to-do-list/to-do-list-item/to-do-list-item.component';
 import { ItemService } from './list/item.service';
-import { DataStorageService } from './shared/data-storage.service';
+
+import { CompletedItemComponent } from './list/to-do-list/completed-item/completed-item.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,13 @@ import { DataStorageService } from './shared/data-storage.service';
     FormComponent,
     ListComponent,
     ToDoListComponent,
-    ToDoListItemComponent
+    ToDoListItemComponent,
+    CompletedItemComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [ItemService],
   bootstrap: [AppComponent]

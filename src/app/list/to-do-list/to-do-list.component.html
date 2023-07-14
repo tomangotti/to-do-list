@@ -1,2 +1,18 @@
-<h3>List</h3>
-<app-to-do-list-item></app-to-do-list-item>
+<div class="todo-list">
+    <h1>List</h1>
+    <app-to-do-list-item 
+        *ngFor="let itemPass of items; let i = index"
+        [item]="itemPass"
+        [index]="i"
+    ></app-to-do-list-item>
+</div>
+<hr>
+<hr>
+<hr>
+<div class="completed-list">
+    <h1>Completed</h1>
+    <app-completed-item
+    *ngFor="let itemPass of items; let i = index"
+        [item]="itemPass"
+        [index]="i"></app-completed-item>
+</div>

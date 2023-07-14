@@ -20,4 +20,12 @@ export class DataStorageService {
                         })
                     )
     }
+
+    onSaveNewItem(newItem: Item) {
+        console.log(newItem)
+        this.http.post('http://localhost:8080/todos', newItem).subscribe( res => {
+            console.log(res)
+            
+        })
+    }
 }

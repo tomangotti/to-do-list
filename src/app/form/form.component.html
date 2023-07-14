@@ -1,1 +1,19 @@
-<p>form works!</p>
+<div class="form-container">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div>
+            <label>Add New Item: </label>
+            <input type="text" id="detail" name="Detail" ngModel>
+        </div>
+        <div>
+            <label>Urgent: </label>
+            <select id="urgent" name="Urgent" ngModel>
+                <option>Yes</option>
+                <option>No</option>
+            </select>
+        </div>
+        <div>
+            <button>Add</button>
+        </div>
+    </form>
+</div>
+

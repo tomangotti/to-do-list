@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Item } from '../../item.model';
 
 @Component({
   selector: 'app-to-do-list-item',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./to-do-list-item.component.css']
 })
 export class ToDoListItemComponent {
-
+  @Input() item: Item;
+  @Input() index: number;
 }
+

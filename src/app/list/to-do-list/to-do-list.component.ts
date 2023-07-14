@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Item } from '../item.model';
 import { Subscription } from 'rxjs';
 import { ItemService } from '../item.service';
@@ -8,7 +8,7 @@ import { ItemService } from '../item.service';
   templateUrl: './to-do-list.component.html',
   styleUrls: ['./to-do-list.component.css']
 })
-export class ToDoListComponent implements OnInit{
+export class ToDoListComponent implements OnInit, OnDestroy{
   items: Item[];
   subscription: Subscription;
 
@@ -22,7 +22,10 @@ export class ToDoListComponent implements OnInit{
         }
       )
     this.items = this.itemService.getList();
-    console.log(this.items)
   }
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
+  }
 }
+

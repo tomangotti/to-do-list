@@ -1,4 +1,4 @@
-.list-item-row {
+.completed-item-row {
     border: 1px black solid;
     border-radius: 5px;
     box-shadow: 1px 1px 1px;
@@ -16,9 +16,7 @@
     width: 100%;
 }
 
-.list-item-row button{
+.completed-item-row button{
     margin: 2px 5px;
     cursor: pointer;
 }
-
-
