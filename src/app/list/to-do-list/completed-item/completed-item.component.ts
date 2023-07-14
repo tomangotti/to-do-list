@@ -11,6 +11,7 @@ import { ItemService } from '../../item.service';
 export class CompletedItemComponent {
   @Input() item: Item;
   @Input() index: number;
+  
 
   constructor(
     private itemService: ItemService,

@@ -1,7 +1,18 @@
-<div class="list-item-row" *ngIf="!item.Completed">  
+<div class="list-item-row" *ngIf="!item.Completed"> 
+    <p class="urgent-icon" [ngStyle]="item.Urgent ? null : {'display': 'none'} ">URGENT</p> 
     <h4> {{item.Detail}} </h4>
-    <p class="urgent-icon" [ngStyle]="item.Urgent ? null : {'display': 'none'} ">URGENT</p>
-    <button type="button" (click)="onComplete()">✔️</button><button type="button">✏️</button><button type="button" (click)="onDeleteItem()">❌</button>
+    
+    <button type="button" (click)="onComplete()">✔️</button><button type="button" (click)="onEdit()">✏️</button><button type="button" (click)="onDeleteItem()">❌</button>
 </div>
-
- 
+<div class="editForm" *ngIf="editMode">
+    <form (ngSubmit)="onSubmit(e)" #e="ngForm">
+        <label>Edit item : </label>
+        <input type="text"  id="detail" name="Detail" [(ngModel)]="item.Detail" required> 
+        <label>Urgent</label>
+        <select id="urgent" name="Urgent" ngModel >
+            <option>Yes</option>
+            <option>No</option>
+        </select>
+        <button [disabled]="!e.valid">👍</button>
+    </form>
+</div>
