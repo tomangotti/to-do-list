@@ -2,17 +2,17 @@
     <form (ngSubmit)="onSubmit(f)" #f="ngForm">
         <div>
             <label>Add New Item: </label>
-            <input type="text" id="detail" name="Detail" ngModel>
+            <input type="text" id="detail" name="Detail" ngModel required>
         </div>
         <div>
             <label>Urgent: </label>
-            <select id="urgent" name="Urgent" ngModel>
+            <select id="urgent" name="Urgent" ngModel required>
                 <option>Yes</option>
                 <option>No</option>
             </select>
         </div>
         <div>
-            <button>Add</button>
+            <button [disabled]="!f.valid">Add</button>
         </div>
     </form>
 </div>

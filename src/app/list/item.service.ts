@@ -10,7 +10,6 @@ export class ItemService {
     itemsChanged = new Subject<Item[]>()
     private items: Item[] = []
 
-    // constructor(private dataStorageService: DataStorageService){}
 
     setList(fetchedItems: Item[]){
         this.items = fetchedItems
@@ -22,9 +21,16 @@ export class ItemService {
     }
 
     addNewItem(newItem: Item) {
-        
         this.items.push(newItem)
         this.itemsChanged.next(this.items.slice())
-        
+    }
+
+    onRemoveItem(index: number) {
+        this.items.splice(index, 1)
+        this.itemsChanged.next(this.items.slice())
+    }
+
+    updateList() {
+        this.itemsChanged.next(this.items.slice())
     }
 }

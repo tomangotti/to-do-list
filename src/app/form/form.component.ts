@@ -20,7 +20,7 @@ export class FormComponent {
   onSubmit(form: NgForm) {
     const value = form.value;
     const isUrgent = value.Urgent === "Yes" ? true : false ;
-    const newItem = new Item(value.Detail, false, isUrgent)
+    const newItem = new Item(value.Detail, false, isUrgent, 0)
     
     this.itemService.addNewItem(newItem)
     this.dataStorageService.onSaveNewItem(newItem)

@@ -9,10 +9,10 @@ import { Injectable } from "@angular/core";
 
 export class DataStorageService {
     constructor(private http: HttpClient, private itemService: ItemService){}
-
+    serverAddress = "http://localhost:8080/todos"
     fetchList(){
         return this.http
-                    .get<Item[]>('http://localhost:8080/todos')
+                    .get<Item[]>(this.serverAddress)
                     .pipe(
                         tap(item => {
                             console.log(item)
@@ -22,10 +22,22 @@ export class DataStorageService {
     }
 
     onSaveNewItem(newItem: Item) {
-        console.log(newItem)
-        this.http.post('http://localhost:8080/todos', newItem).subscribe( res => {
+        this.http.post(this.serverAddress, newItem).subscribe( res => {
             console.log(res)
-            
         })
+    }
+
+    onUpdateItem(updatedItem: Item) {
+        this.http.put(this.serverAddress + "/" + updatedItem.ID, updatedItem).subscribe( res => {
+            console.log(res)
+        })
+    }
+
+    removeFromServer(id: number){
+        this.http.delete(this.serverAddress + "/" + id).subscribe(
+            res => {
+                console.log(res)
+            }
+        )
     }
 }

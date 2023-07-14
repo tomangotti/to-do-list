@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Item } from '../../item.model';
+import { ItemService } from '../../item.service';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
 
 @Component({
   selector: 'app-to-do-list-item',
@@ -9,5 +11,21 @@ import { Item } from '../../item.model';
 export class ToDoListItemComponent {
   @Input() item: Item;
   @Input() index: number;
+
+  constructor(
+      private itemService: ItemService,
+      private dataStorageService: DataStorageService){}
+
+
+  onComplete(){
+    this.item.Completed = !this.item.Completed
+    this.itemService.updateList()
+    this.dataStorageService.onUpdateItem(this.item)
+  }
+
+  onDeleteItem(){
+    this.itemService.onRemoveItem(this.index)
+    this.dataStorageService.removeFromServer(this.item.ID)
+  }
 }
 

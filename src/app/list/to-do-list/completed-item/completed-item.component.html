@@ -1,4 +1,4 @@
 <div class="completed-item-row" *ngIf="item.Completed">  
     <h4> {{item.Detail}} </h4>
-    <button type="button">🔙</button><button type="button">❌</button>
+    <button type="button" (click)="onUndo()">🔙</button><button type="button" (click)="onDeleteItem()">❌</button>
 </div>

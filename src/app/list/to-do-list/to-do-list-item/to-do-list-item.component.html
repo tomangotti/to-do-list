@@ -1,6 +1,7 @@
 <div class="list-item-row" *ngIf="!item.Completed">  
     <h4> {{item.Detail}} </h4>
     <p class="urgent-icon" [ngStyle]="item.Urgent ? null : {'display': 'none'} ">URGENT</p>
-    <button type="button">✔️</button><button type="button">✏️</button><button type="button">❌</button>
+    <button type="button" (click)="onComplete()">✔️</button><button type="button">✏️</button><button type="button" (click)="onDeleteItem()">❌</button>
 </div>
 
+ 
