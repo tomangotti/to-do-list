@@ -35,12 +35,10 @@ export class ToDoListItemComponent {
   }
 
   onSubmit(form: NgForm) {
-    const value = form.value;
-    const isUrgent = value.Urgent === "Yes" ? true : false ;
-    const newItem = new Item(value.Detail, false, isUrgent, this.item.ID)
-    this.item = newItem
     
-    this.itemService.updateList()
+    const isUrgent = form.value.Urgent === "Yes" ? true : false ;
+    this.item.Detail = form.value.Detail;
+    this.item.Urgent = isUrgent;
     
     this.dataStorageService.onUpdateItem(this.item)
     this.onEdit()
