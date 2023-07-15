@@ -7,7 +7,6 @@ export class ItemService {
     itemsChanged = new Subject<Item[]>()
     private items: Item[] = []
 
-
     setList(fetchedItems: Item[]){
         this.items = fetchedItems
         this.itemsChanged.next(this.items.slice())

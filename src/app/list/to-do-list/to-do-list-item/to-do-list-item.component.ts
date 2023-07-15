@@ -39,7 +39,7 @@ export class ToDoListItemComponent {
     const isUrgent = value.Urgent === "Yes" ? true : false ;
     const newItem = new Item(value.Detail, false, isUrgent, this.item.ID)
     this.item = newItem
-    console.log(this.item)
+    
     this.itemService.updateList()
     
     this.dataStorageService.onUpdateItem(this.item)
